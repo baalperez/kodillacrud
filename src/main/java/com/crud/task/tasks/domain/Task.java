@@ -23,4 +23,7 @@ public class Task {
         this.title = title;
         this.content = content;
     }
+
+    public Task(Long id, String title, String content) {
+    }
 }
