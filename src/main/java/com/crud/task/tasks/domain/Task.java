@@ -6,7 +6,6 @@ import javax.persistence.*;
 
 @Entity
 @Getter @Setter @ToString
-@NoArgsConstructor
 @Table(name = "tasks")
 public class Task {
     @Id
@@ -25,5 +24,9 @@ public class Task {
     }
 
     public Task(Long id, String title, String content) {
+    }
+
+    public Task() {
+
     }
 }

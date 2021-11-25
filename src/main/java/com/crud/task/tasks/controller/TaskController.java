@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/v1/task")
 @RequiredArgsConstructor
@@ -36,7 +37,7 @@ public class TaskController {
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "updateTask")
-    public TaskDto updateTask(@RequestParam Long taskId, @RequestBody TaskDto taskDto) {
+    public TaskDto updateTask(@RequestParam Long taskId, @RequestBody TaskDto taskDto) throws TaskNotFoundException {
         Task task = taskMapper.mapToTask(taskDto);
         task.setId(taskId);
         Task savedTask = service.saveTask(task);
